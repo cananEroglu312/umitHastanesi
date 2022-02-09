@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - umitHastanesiWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="css/modern-business.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img style="width: 36px; height: 36px;" src="https://img.icons8.com/color/48/000000/heart-health.png" />
+                    <b>ÜMİT HASTANESİ</b>
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                    <ul class="navbar-nav ml-auto">
+                        @*KURUMSAL*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kurumsal
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                                <a class="dropdown-item" asp-controller="Home" asp-action="AboutUs">Hakkımızda</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="PatientRights">Hasta Hak ve Sorumlulukları</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="VisitorRights">Ziyaretçi ve Refakatçi Politikası</a>
+                            </div>
+                        </li>
+                        @*bÖLÜMLER*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Bölümlerimiz
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Emergency">Acil Servis</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Brain">Beyin ve Sinir Cerrahisi</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="CheckUp">Check-Up</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Child">Çocuk Sağlığı ve Hastalıkları</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="InternalMedicine">Dahiliye</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Dermatology">Dermatoloji</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="GeneralSurgery">Genel Cerrahi</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Eyes">Göz Hastalıkları</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Otolaryngology">Kulak Burun Boğaz</a>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Neurology">Nöroloji</a>
+                            </div>
+                        </li>
+                        @*HEKİMLER*@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Doctors">Hekimlerimiz</a>
+                        </li>
+                        @*RANDEVU*@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Appointment">Randevu Al</a>
+                        </li>
+                        @*İLETİŞİM*@
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Contact">İletişim</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <br /><br /><br /><br />
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer bg-primary text-light">
+        <div class="container">
+            &copy; 2020 - Ümit Hastanesi / Nur Şevval Yıldız - Canan Eroğlu - Emre Erkan
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

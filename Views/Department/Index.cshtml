@@ -1,0 +1,50 @@
+﻿@model IEnumerable<umitHastanesiWeb.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+
+    <div class="row">
+        <div class="list-group ">
+            <a class="list-group-item bg-primary text-light" asp-controller="Doctor" asp-action="Index">Doctor</a>
+            <a class="list-group-item bg-warning text-light" asp-controller="Department" asp-action="Index">Department</a>
+            <a class="list-group-item bg-primary text-light" asp-controller="Appointment" asp-action="Index">Appointment</a>
+            <a class="list-group-item bg-primary text-light" asp-controller="Language" asp-action="Index">Language</a>
+            <a class="list-group-item bg-primary text-light" asp-controller="Degree" asp-action="Index">Degree</a>
+        </div>
+
+        <div class="col-md-9 col-sm-12 col-xs-12 pull-right">
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

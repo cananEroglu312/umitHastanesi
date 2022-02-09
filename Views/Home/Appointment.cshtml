@@ -1,0 +1,72 @@
+﻿@model IEnumerable<umitHastanesiWeb.Models.Appointment>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Appointment Page";
+    var girisYapanKullanici = await UserManager.GetUserAsync(User);
+    Appointment appointment = new Appointment();
+
+}
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/datepicker.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<div class="container">
+    <ol class="breadcrumb bg-primary">
+        <li class="breadcrumb-item">
+            <a class="text-light" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+        </li>
+        <li class="breadcrumb-item active text-light">Randevu Al</li>
+    </ol>
+</div>
+
+<div class="col-sm-5">
+    <div class="form-data">
+        <div class="form-body">
+
+            <div class="row form-row">
+                <input disabled type="text" placeholder=@girisYapanKullanici.UserName class="form-control">
+            </div>
+            <div class="row form-row">
+                <br />
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row form-row">
+                <select>
+                    @foreach (var item in Model)
+                    {
+
+                        <option>
+                            @Html.DisplayFor(modelItem => item.Date)
+                            @Html.DisplayFor(modelItem => item.Doctor.Name)
+                        </option>
+
+                    }
+                </select>
+                <br />
+            </div>
+            <div class="row form-row">
+                <br />
+            </div>
+            <div class="row form-row">
+                <a class="nav-link text-light bg-warning" asp-controller="Home" asp-action="Contact">Randevu almak için</a>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/bootstrap-datepicker.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#dat").datepicker();
+    })
+</script>

@@ -1,0 +1,23 @@
+﻿    @using Microsoft.AspNetCore.Identity
+    @inject SignInManager<IdentityUser> SignInManager
+    @inject UserManager<IdentityUser> UserManager
+    @inject RoleManager<IdentityRole> RoleManager
+@{
+if(SignInManager.IsSignedIn(User))
+{
+    var girisYapanKullanici = await UserManager.GetUserAsync(User);
+    var kullaniciRol = await UserManager.GetRolesAsync(girisYapanKullanici);
+    if(kullaniciRol.SingleOrDefault()=="Admin")
+    {
+        Layout = "_AdminLayout";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+else
+{
+    Layout = "_Layout";
+}
+}
